@@ -7,9 +7,8 @@
 #want that at bottom of program
 import pygame as py
 from Screens import Screens
-from player import Player
 from gameloop import run_loop
-from Instructions import Instructions_screen
+#from Instructions import Instructions_screen
 
 
 
@@ -78,9 +77,9 @@ class Menuscreen(Screens):#inheritence, stating class to inherit from
             for event in py.event.get():
                 if location[0]>=160 and location [0]<=319 and location[1]>=130 and location [1]<=168 and event.type==py.MOUSEBUTTONDOWN:
                     run_loop()            
-            for event in py.event.get():
-                if location[0]>=160 and location [0]<=319 and location[1]>=145 and location [1]<=188 and event.type==py.MOUSEBUTTONDOWN:
-                    Instructions_screen()
+            #for event in py.event.get():
+                #if location[0]>=160 and location [0]<=319 and location[1]>=145 and location [1]<=188 and event.type==py.MOUSEBUTTONDOWN:
+                    #Instructions_screen()
             py.display.flip()
             self._clock.tick(30)
         py.quit()
