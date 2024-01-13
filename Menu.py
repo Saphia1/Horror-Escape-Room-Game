@@ -7,8 +7,8 @@
 #want that at bottom of program
 import pygame as py
 from Screens import Screens
-from gameloop import run_loop
-#from Instructions import Instructions_screen
+from gameloop import maingame
+from Instructions import Instructions
 
 
 
@@ -20,13 +20,13 @@ class Menuscreen(Screens):#inheritence, stating class to inherit from
                                "Colour":(0,0,0),
                                "Textcolour":(255,255,255),
                                "Textcoords":(170,130),
-                               "Textsize":(30)},}
+                               "Textsize":(30)}}
         self._instructionbutton={"Instructions":{"Button":self.createRect(145,200,190,50),#created a dictionary for each button that specifies all of the attributes
                                "Text":"Instructions",
                                "Colour":(0,0,0),
                                "Textcolour":(255,255,255),
                                "Textcoords":(150,200),
-                               "Textsize":(30)},}
+                               "Textsize":(30)}}
         self._controlsbutton={"Controls":{"Button":self.createRect(170,270,140,50),#created a dictionary for each button that specifies all of the attributes
                                "Text":"Controls",
                                "Colour":(0,0,0),
@@ -63,7 +63,7 @@ class Menuscreen(Screens):#inheritence, stating class to inherit from
             for key, value in self._controlsbutton.items():
                 self.display_button(value["Button"],value["Colour"], self._screen)
                 self.draw_text(value["Text"],value["Textcoords"][0],value["Textcoords"][1], value["Textsize"],value["Textcolour"])
-            self.draw_text("o", 319 , 165, 12, (170, 0, 29))
+            #self.draw_text("o", 319 , 165, 12, (170, 0, 29))#used for finding coordiantes
             #for event in py.event.get():
                 #if event.type==py.MOUSEBUTTONDOWN:
                     #start_game ==True
@@ -72,17 +72,16 @@ class Menuscreen(Screens):#inheritence, stating class to inherit from
                         #if event.type==py.QUIT:
                            # start_game=False
                            # return start_game  
-            py.event.pump
             location=self.getmouse()
             for event in py.event.get():
                 if location[0]>=160 and location [0]<=319 and location[1]>=130 and location [1]<=168 and event.type==py.MOUSEBUTTONDOWN:
-                    run_loop()            
-            #for event in py.event.get():
-                #if location[0]>=160 and location [0]<=319 and location[1]>=145 and location [1]<=188 and event.type==py.MOUSEBUTTONDOWN:
-                    #Instructions_screen()
+                    maingame()   
+            for event in py.event.get():
+                if location[0]>=160 and location [0]<=319 and location[1]>=145 and location [1]<=188 and event.type==py.MOUSEBUTTONDOWN:
+                    Instructions() 
             py.display.flip()
             self._clock.tick(30)
-        py.quit()
+py.quit()
 
 
 

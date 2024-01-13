@@ -1,10 +1,7 @@
 # from ... import run_game
 # from menu import menu
-from gameloop import run_loop
-from Menu import Menuscreen
-from PygameUtil import PygameUtil
-from player import Player
-import sys
+from gameloop import maingame
+from Menu import Menuscreen as Menu
 import pygame as py
 
 #running=True
@@ -17,8 +14,7 @@ py.init()
 start_game = False
 while start_game == False:
     print("running menu")
-    Menuscreen()
-    run_loop()
+    Menu()
     py.event.get()
     for event in py.event.get():
                     if event.type==py.QUIT:
@@ -29,7 +25,7 @@ while start_game == False:
             start_game ==True
 if start_game==True:
     print("running main game")
-    run_loop()
+    maingame()
     for event in py.event.get():
         if event.type==py.QUIT:
             start_game=False

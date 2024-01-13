@@ -9,7 +9,7 @@ class Screens(PygameUtil):#inheritence, stating class to inherit from
     def __init__(self,bgcolour=(70, 72, 74)):
         super().__init__()#goes to super class (pygameutil) and use the contructor from there, inherits
         self._bgcolour=bgcolour #protected
-        self._font=py.font.SysFont("Chiller", 24)
+        self._font=py.font.SysFont("Comicsans", 24)
         self._fontcolour=(255,0,30)
     #def createfont(self,fontsize):
         #self._font=py.font.SysFont("comicsans",fontsize)
