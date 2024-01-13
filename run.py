@@ -13,22 +13,13 @@ import pygame as py
 py.init()
 start_game = False
 while start_game == False:
-    print("running menu")
     Menu()
     py.event.get()
     for event in py.event.get():
                     if event.type==py.QUIT:
                         start_game=False
-    print("menu called")
-    for event in py.event.get():
-        if event.type==py.MOUSEBUTTONDOWN:
-            start_game ==True
-if start_game==True:
-    print("running main game")
-    maingame()
-    for event in py.event.get():
-        if event.type==py.QUIT:
-            start_game=False
+
+
 
     #if start_game==True:
         #run_loop()
