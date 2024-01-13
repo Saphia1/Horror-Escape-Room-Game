@@ -1,4 +1,4 @@
-from PygameUtil import PygameUtil as py #how to import from other files
+""" from PygameUtil import PygameUtil as py #how to import from other files
 class Cell:
     def __init__(self,x,y,width,height):#x and y of bottom left coordinates#
         self.__x=x
@@ -18,3 +18,4 @@ class Cell:
 
     
     
+ """

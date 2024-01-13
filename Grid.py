@@ -1,4 +1,4 @@
-
+""" 
 from Cell import Cell
 from PygameUtil import PygameUtil
 class Grid(PygameUtil):
@@ -23,7 +23,7 @@ class Grid(PygameUtil):
                 walls=cell.getwalls()
                 if walls["top"]:
                     self.drawline((255,255,255),(x,y),(x+w,y))#end point is gained by x+w,y (add the picture from notes in annotations)
-                    
+                     """
 
 
 
