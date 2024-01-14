@@ -1,28 +1,35 @@
 import pygame as py
 from Screens import Screens
+import sys
 
 class controls(Screens):#inheritence, stating class to inherit from
     def __init__(self,bgcolour=(158, 158, 158)):
         super().__init__(bgcolour)
-        self._nextbutton={"Next":{"Button":self.createRect(160,130,160,50),#created a dictionary for each button that specifies all of the attributes
-                               "Text":"Next",
-                               "Colour":(0,0,0),
-                               "Textcolour":(255,255,255),
-                               "Textcoords":(170,130),
-                               "Textsize":(30)}}
+
 
     def Update(self):
         running=True
         while running:
-            self._screen.fill((158, 158, 158))
-            self.draw_text("Instructions", 10 , 20, 80, (170, 0, 29))#x,y,size,colour
-            self.draw_text('''
-                           Use WASD to move around.
-                        Q is used to interact with objects
-                        R is used to access the inventory
-                        Use your curser to move the camera and to select items in the inventory into your hand
-                        You can press E to return the item to the inventory or use it to interact with items such as locks if near the player'''
-                           , 10 , 20, 15, (170, 0, 29))
+            for event in py.event.get():
+                if event.type==py.QUIT:
+                        start_game=False
+                        #py.quit()#this causes to stop being initialised, solution: put system.exit instead
+                        sys.exit()
+            self._screen.fill((158,158,158))
+
+            background=self.createRect(30,80,450,400)
+            self.drawRect((0,0,0),background,self._screen)
+            
+            self.draw_textline("Controls", 120 , 20, 80, (170, 0, 29))#x,y,size,colour
+            self.draw_textline('''
+Use WASD to move around.\n
+Q is used to interact with objects\n
+R is used to access the inventory\n
+Use your curser to move the camera and to \n
+select items in the inventory into your hand.\n
+You can press E to return the item to the inventory\n
+or use it to interact with items such as locks if nearby.'''
+                           , 40 , 100, 20, (170, 0, 29))
 
             py.display.flip()
             self._clock.tick(30)
@@ -30,4 +37,4 @@ class controls(Screens):#inheritence, stating class to inherit from
 
 
 
-#controls().Update()
+controls().Update()
