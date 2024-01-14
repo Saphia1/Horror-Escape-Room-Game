@@ -19,7 +19,7 @@ class Screens(PygameUtil):#inheritence, stating class to inherit from
         self._fontcolour=(255,0,30)
         if fontcolour==None:
             fontcolour=self._fontcolour
-        text=self._font.render(text, True, fontcolour,)
+        text=self._font.render(text, True, fontcolour)
         self._screen.blit (text,(x,y))
 
     def display_button(self,btn,colour, surface=None):#btn= button
