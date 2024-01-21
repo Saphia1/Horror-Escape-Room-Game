@@ -14,6 +14,7 @@ class Grid(PygameUtil):
             for j in range(0, self.__width):
                 cell=Cell(self.__start_pos[0]*(j+1),self.__start_pos[1]*(i+1))#setting up the x and y coords to move each time for the next cell #WONT WORK WITH CELLS THAT ARE NOT 20 PIXELS AS ASSUMES EACH CELL A SQUARE
                 self.__grid[i].append(cell)
+        self.depthfirst()
     def buildgrid(self):#method to build the grid, will draw every row and cell in array
         for row in self.__grid:#(row is r it is doing the collumns)
             for cell in row:
@@ -29,9 +30,10 @@ class Grid(PygameUtil):
                     self.drawline((255,255,255),(x,y),(x,y+h))
                 if walls["right"]:
                     self.drawline((255,255,255),(x+w,y),(x+w,y+h))
+        #grid.buildce
 
     def depthfirst(self):#want to start at first cell, pick random neighbour, from random neighbour, then choose random neighbour and so on. If stuck at nay point, backtrack till you can choose another neighbour.
-        cell=self.__grid[0,0]#starting at first cell
+        cell=self.__grid[0][0]#starting at first cell
         path=[]#created a stack to store the path
         visited=[]#created list of viisted cells
         while len(visited)<=(self.__width*self.__height):#while we havent visisted all the cells 
@@ -44,10 +46,11 @@ class Grid(PygameUtil):
                 neighbour=cell.choosecell()#bad name, change it
                 path.append(cell)
                 cell.removewall(neighbour)
-                self.__grid [i,j]=cell#updates all changes we made to cell
+                self.__grid [i][j]=cell#updates all changes we made to cell
                 cell=neighbour#increments to new neighbour
             else:
                 path.pop()
+        
 
 
 
@@ -65,8 +68,8 @@ class Grid(PygameUtil):
             #checking if neighbours actually exist
             i=(neighbour_yvalue/self.__start_pos[1])-1
             j=(neighbour_xvalue/self.__start_pos[0])-1
-            if 0<=i<=self.__height and 0<=j<=self.__width and self.__grid[i,j] not in visited and self.__grid[i,j] not in cell.getneighbours():#if cell exists and also hasnt been visited
-                cell.addneighbour(self.__grid[i,j])
+            if 0<=i<=self.__height and 0<=j<=self.__width and self.__grid[i][j] not in visited and self.__grid[i][j] not in cell.getneighbours():#if cell exists and also hasnt been visited
+                cell.addneighbour(self.__grid[i][j])
         
         if not cell.getneighbours():#if neighbours is empty
             return False # there are no possible neighbours (go back)

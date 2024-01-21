@@ -25,6 +25,7 @@ class maingame(Screens):
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
+            
             self._screen.fill((158, 158, 158))
             #if x in corner is clicked, the game stops running
             for event in py.event.get():
@@ -32,6 +33,7 @@ class maingame(Screens):
                     start_game=False
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
                     sys.exit()
+            grid.buildgrid()
 
 
             #py.draw.circle(surface(you can have screen, smaller surfaces for text, having multiple different screens),colour E.g.(0,0,0),the coordinates of the centre to place it(250,250),radius75)
