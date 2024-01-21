@@ -23,8 +23,12 @@ class Instructions(Screens):#inheritence, stating class to inherit from
             self._screen.fill((158,158,158))
 
             background=self.createRect(30,80,450,400)
-            self.drawRect((0,0,0),background,self._screen)
-            self.draw_textline("Instructions", 75 , 20, 80, (170, 0, 29))#x,y,size,colour
+            self.drawRect((255, 255, 187),background,self._screen)
+            back=self.createRect(120,440,80,40)
+            self.drawRect((0,0,0),back,self._screen)
+            self.draw_textline("Back", 125 , 445, 42, (255, 255, 255))
+            
+            self.draw_textline("Instructions", 75 , 20, 80, (158,0,0))#x,y,size,colour
             self.draw_textline('''
 You wake in a mysterious place, the name Sakshi\n
 runs through your mind You are a detective sent to\n
@@ -36,7 +40,12 @@ By completing tasks and puzzles find a way out!\n
 Do not get caught more than three times!\n
 Interact with the map and objects to find clues.\n
 Good luck!'''
-                           , 40 , 90, 20, (170, 0, 29))
+                           , 40 , 90, 20, (0,0,0))
+            location=self.getmouse()
+            for event in py.event.get():
+                if event.type==py.MOUSEBUTTONDOWN:
+                            if back.collidepoint(location):
+                                return
 
             py.display.flip()
             self._clock.tick(30)
@@ -44,7 +53,7 @@ Good luck!'''
 
 
 
-Instructions().Update()#testing purposes only
+#Instructions().Update()#testing purposes only(comment out when finished)
 """         WIDTH=500
         HEIGHT=500
         self._screen=py.display.set_mode([WIDTH,HEIGHT]) 

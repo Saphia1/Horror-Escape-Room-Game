@@ -29,9 +29,9 @@ from inventory import inventory """
 py.quit() """
 
 
-
+""" 
 displayinventory().Update()
-#   
+#    """
 
    
       

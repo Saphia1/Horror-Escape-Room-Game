@@ -21,3 +21,5 @@ class inventory ():
             else:
                 present=False
                 return present
+    def getinventory(self):
+        return self._inventory
