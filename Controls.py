@@ -18,9 +18,6 @@ class controls(Screens):#inheritence, stating class to inherit from
                         #py.quit()#this causes to stop being initialised, solution: put system.exit instead
                         sys.exit()
                 location=self.getmouse()
-                if event.type==py.MOUSEBUTTONDOWN:
-                        if back.collidepoint(location):
-                             sys.exit()
                             
             self._screen.fill((158,158,158))
 
@@ -40,6 +37,10 @@ select items in the inventory into your hand.\n
 You can press E to return the item to the inventory\n
 or use it to interact with items such as locks if nearby.'''
                            , 40 , 100, 20, (0,0,0))
+            for event in py.event.get():
+                if event.type==py.MOUSEBUTTONDOWN:
+                            if back.collidepoint(location):
+                                return
 
             py.display.flip()
             self._clock.tick(30)

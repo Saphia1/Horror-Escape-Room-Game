@@ -21,7 +21,7 @@ class maingame(Screens):
         start_game=True
         grid=Grid(50,50)
         grid.gencells()
-        #p1=Player(100,400,20,20,3)
+        p1=Player(100,400,20,20,3)
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
@@ -34,7 +34,12 @@ class maingame(Screens):
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
                     sys.exit()
             grid.buildgrid()
-
+            keys=py.key.get_pressed()
+            rect=py.Rect(300,200,50,50)
+            py.draw.rect(self._screen,(255,0,0),rect)
+            p1.movement(keys,rect)
+            p1.draw(self._screen) 
+            
 
             #py.draw.circle(surface(you can have screen, smaller surfaces for text, having multiple different screens),colour E.g.(0,0,0),the coordinates of the centre to place it(250,250),radius75)
             py.display.flip()
