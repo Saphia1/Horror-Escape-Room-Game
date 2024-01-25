@@ -9,7 +9,7 @@ class Player(PygameUtil):
         self.__colour=(129,45,247)
         super().__init__()
     #the movement method of my player
-    def movement(self,keys,obj=None):#if dont pass in obj, then automatically pass in as none
+    def movement(self,keys,grid,obj=None):#if dont pass in obj, then automatically pass in as none
         newplayer=self.__rect.copy() #copies position of player
         #basic logic: if the key is pressed move in that direction
         if keys[py.K_UP]:
@@ -32,8 +32,29 @@ class Player(PygameUtil):
             #function that provides true and false for if two rectangles collide
         if obj and newplayer.colliderect(obj):
             return #if rectangles collide then dont make any changes (dont update clock so they dotn move)
+        if self.wallcollision(grid,newplayer):
+
+            return
         
         self.__rect=newplayer#making actual player equal to the location of copy so it does update as NOT collided
+        
+    def wallcollision(self, grid, rect):
+        for row in grid:
+            for cell in row:
+                cellwall=cell.getwalls()
+                celledges=cell.getwalledge()
+                for key in cellwall.keys():
+                    if cellwall[key]:
+                        if rect.clipline(celledges[key]):
+                            return True
+        return False
+    
+    
+
+        
+        
+
+
 
         
         

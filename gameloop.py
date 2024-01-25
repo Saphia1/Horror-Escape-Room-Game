@@ -19,9 +19,10 @@ class maingame(Screens):
         """
         py.init()
         start_game=True
-        grid=Grid(50,50)
+        grid=Grid(20,20)
         grid.gencells()
-        p1=Player(100,400,20,20,3)
+        cells=grid.getcells()
+        p1=Player(20,20,10,10,3)
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
@@ -36,8 +37,8 @@ class maingame(Screens):
             grid.buildgrid()
             keys=py.key.get_pressed()
             rect=py.Rect(300,200,50,50)
-            py.draw.rect(self._screen,(255,0,0),rect)
-            p1.movement(keys,rect)
+           # py.draw.rect(self._screen,(255,0,0),rect)
+            p1.movement(keys,cells,rect)
             p1.draw(self._screen) 
             
 
