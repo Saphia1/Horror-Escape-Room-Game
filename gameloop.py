@@ -3,6 +3,7 @@ import pygame as py
 import sys
 from Screens import Screens
 from Grid import Grid
+from enemy import Enemy
 
 
 class maingame(Screens):
@@ -22,24 +23,31 @@ class maingame(Screens):
         grid=Grid(20,20)
         grid.gencells()
         cells=grid.getcells()
-        p1=Player(20,20,10,10,3)
+        p1=Player(22,22,10,10,3)
+        enemy=Enemy(102,48,10,10,3)
+        detected=False
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
-            
+
             self._screen.fill((158, 158, 158))
             #if x in corner is clicked, the game stops running
             for event in py.event.get():
                 if event.type==py.QUIT:
+
                     start_game=False
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
                     sys.exit()
+
             grid.buildgrid()
+            
             keys=py.key.get_pressed()
-            rect=py.Rect(300,200,50,50)
            # py.draw.rect(self._screen,(255,0,0),rect)
-            p1.movement(keys,cells,rect)
-            p1.draw(self._screen) 
+
+            p1.movement(keys,cells)
+            p1.draw(self._screen)
+            enemy.draw(self._screen)
+            enemy.movement(cells,detected,p1.getrect())
             
 
             #py.draw.circle(surface(you can have screen, smaller surfaces for text, having multiple different screens),colour E.g.(0,0,0),the coordinates of the centre to place it(250,250),radius75)

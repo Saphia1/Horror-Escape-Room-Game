@@ -32,22 +32,24 @@ class Player(PygameUtil):
             #function that provides true and false for if two rectangles collide
         if obj and newplayer.colliderect(obj):
             return #if rectangles collide then dont make any changes (dont update clock so they dotn move)
-        if self.wallcollision(grid,newplayer):
+        if self.wallcollision(grid,newplayer):#wall collision, if its true then DONT update location
 
             return
         
         self.__rect=newplayer#making actual player equal to the location of copy so it does update as NOT collided
         
-    def wallcollision(self, grid, rect):
-        for row in grid:
+    def wallcollision(self, grid, rect):#method to detect if player hits wall
+        for row in grid:#check for each cell in the whole grid
             for cell in row:
-                cellwall=cell.getwalls()
-                celledges=cell.getwalledge()
-                for key in cellwall.keys():
-                    if cellwall[key]:
-                        if rect.clipline(celledges[key]):
+                cellwall=cell.getwalls()#get the walls
+                celledges=cell.getwalledge()#find the edges for each wall
+                for key in cellwall.keys():#now for every edge 
+                    if cellwall[key]:#if the wall of the cell matches the edge
+                        if rect.clipline(celledges[key]):#then return wall collision as true (go back to the if statement in collisions)
                             return True
         return False
+    def getrect(self):
+        return self.__rect
     
     
 
