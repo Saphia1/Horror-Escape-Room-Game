@@ -5,20 +5,20 @@ import random
 class Enemy(Player):
     #setting up attributes being used
     def __init__(self,x,y,w,h,speed):
-        self.__speed=speed
-        self.__rect=py.Rect(x,y,w,h)
-        self.__colour=(129,45,247)
         super().__init__(x,y,w,h,speed)
+        self._colour=(200,45,47)
+        
     #the movement method of my player
     def movement(self,grid,detected,player=None):#if dont pass in obj, then automatically pass in as none
-        newenemy=self.__rect.copy() #copies position of player
-        #basic logic: if the key is pressed move in that direction
+        newenemy=self._rect.copy() #copies position of player
+      
+        
         if detected ==False:
-                newenemy.move_ip(0,random.randint(0,100))
-                newenemy.move_ip(0,random.randint(0,100))
-                newenemy.move_ip(0,random.randint(0,100))
-                newenemy.move_ip(0,random.randint(0,100))
-                #setting up boundries for player leaving screen
+                
+                movement=[(0,-self._speed),(0,self._speed),(self._speed,0),(-self._speed,0)]
+                newenemy.move_ip(random.choice(movement))
+               
+
                 if newenemy.left<0:
                     newenemy.left=0
                 if newenemy.top<=0:
@@ -33,7 +33,8 @@ class Enemy(Player):
         if self.wallcollision(grid,newenemy):#wall collision, if its true then DONT update location
             return
         
-        enemy=newenemy
+        self._rect=newenemy
+   
 
 
 py.quit() 

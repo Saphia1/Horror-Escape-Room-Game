@@ -24,7 +24,7 @@ class maingame(Screens):
         grid.gencells()
         cells=grid.getcells()
         p1=Player(22,22,10,10,3)
-        enemy=Enemy(102,48,10,10,3)
+        enemy=Enemy(102,45,10,10,3)
         detected=False
 
         #ensures game can be quit, draws the screen.
@@ -44,10 +44,13 @@ class maingame(Screens):
             keys=py.key.get_pressed()
            # py.draw.rect(self._screen,(255,0,0),rect)
 
-            p1.movement(keys,cells)
+            p1.movement(keys,cells,enemy.getrect())
             p1.draw(self._screen)
-            enemy.draw(self._screen)
+            
             enemy.movement(cells,detected,p1.getrect())
+      
+            enemy.draw(self._screen)
+            
             
 
             #py.draw.circle(surface(you can have screen, smaller surfaces for text, having multiple different screens),colour E.g.(0,0,0),the coordinates of the centre to place it(250,250),radius75)

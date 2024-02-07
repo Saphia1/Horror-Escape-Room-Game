@@ -4,22 +4,23 @@ from PygameUtil import PygameUtil
 class Player(PygameUtil):
     #setting up attributes being used
     def __init__(self,x,y,w,h,speed):
-        self.__speed=speed
-        self.__rect=py.Rect(x,y,w,h)
-        self.__colour=(129,45,247)
         super().__init__()
+        self._speed=speed
+        self._rect=py.Rect(x,y,w,h)
+        self._colour=(129,45,247)
+        
     #the movement method of my player
     def movement(self,keys,grid,obj=None):#if dont pass in obj, then automatically pass in as none
-        newplayer=self.__rect.copy() #copies position of player
+        newplayer=self._rect.copy() #copies position of player
         #basic logic: if the key is pressed move in that direction
         if keys[py.K_UP]:
-            newplayer.move_ip(0,-self.__speed)
+            newplayer.move_ip(0,-self._speed)
         if keys[py.K_DOWN]:
-            newplayer.move_ip(0,self.__speed)
+            newplayer.move_ip(0,self._speed)
         if keys[py.K_LEFT]:
-            newplayer.move_ip(-self.__speed,0)
+            newplayer.move_ip(-self._speed,0)
         if keys[py.K_RIGHT]:
-            newplayer.move_ip(self.__speed,0)
+            newplayer.move_ip(self._speed,0)
         #setting up boundries for player leaving screen
         if newplayer.left<0:
             newplayer.left=0
@@ -36,7 +37,7 @@ class Player(PygameUtil):
 
             return
         
-        self.__rect=newplayer#making actual player equal to the location of copy so it does update as NOT collided
+        self._rect=newplayer#making actual player equal to the location of copy so it does update as NOT collided
         
     def wallcollision(self, grid, rect):#method to detect if player hits wall
         for row in grid:#check for each cell in the whole grid
@@ -49,7 +50,7 @@ class Player(PygameUtil):
                             return True
         return False
     def getrect(self):
-        return self.__rect
+        return self._rect
     
     
 
@@ -62,6 +63,6 @@ class Player(PygameUtil):
         
 #draws the player
     def draw(self,surf):
-        py.draw.rect(surf,self.__colour,self.__rect)
+        py.draw.rect(surf,self._colour,self._rect)
 
 py.quit()
