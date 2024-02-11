@@ -34,8 +34,18 @@ class Tasks():
         code=str(code)
         return code
     
+    def answergenerator(self):
+        code=""
+        for i in range (0,2):
+                 code=code+str(random.randint(0,9))
+                 
+                 
+        code=str(code)
+        return code
+         
+    
     def codecalc(self,code):
-        codeint=int(code)
+        codeint=0
         for i in range (0,(len(code))):
             numb=int(code[i])
             codeint=codeint+numb

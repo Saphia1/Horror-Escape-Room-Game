@@ -9,9 +9,9 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
         super().__init__(bgcolour)
         self._todo=todo
         self._code=Tasks().codegenerator()
-        self.__ans1=Tasks().codegenerator()
-        self.__ans2=Tasks().codegenerator()
-        self.__ans3=Tasks().codegenerator()
+        self.__ans1=Tasks().answergenerator()
+        self.__ans2=Tasks().answergenerator()
+        self.__ans3=Tasks().answergenerator()
 
         
         
