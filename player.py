@@ -52,6 +52,13 @@ class Player(PygameUtil):
     def getrect(self):
         return self._rect
     
+    def incell(self,grid):#find out what cekk
+        for row in grid:
+            for cell in row:
+                if self._rect.colliderect(cell.getrect()):
+                    return cell
+    
+    
     
 
         

@@ -4,12 +4,19 @@ import sys
 from Screens import Screens
 from Grid import Grid
 from enemy import Enemy
-
+from Tasks import Tasks
+from riddletask import Riddle
+from decodetask import Decodetask
+#generate all spawn cells then use for lopp to go through eahc one, then check if equal to current cell, then run that task
 
 class maingame(Screens):
     def __init__(self, bgcolour=(158,158,158)):
         super().__init__()
         self._bgcolour=bgcolour
+        self._todo=5
+        self._visitedriddle=False
+        self._visiteddecode=False
+        
         
 
     
@@ -23,8 +30,8 @@ class maingame(Screens):
         grid=Grid(20,20)
         grid.gencells()
         cells=grid.getcells()
-        p1=Player(22,22,10,10,3)
-        enemy=Enemy(102,45,10,10,10)
+        p1=Player(22,22,10,10,6)
+        enemy=Enemy(102,45,10,10,grid.getcellsize())
         detected=False
 
         #ensures game can be quit, draws the screen.
@@ -50,12 +57,20 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
-            
+
+            for taskcell in Tasks.getspawncells():
+
+                if p1.incell(grid).getcoords()==taskcell.getcoords():
+                    if self._visitedriddle==False:
+                        Riddle(self._todo).update()
+                    elif self._visiteddecode==False:
+                        Decodetask(self._todo).update()
+                
             
 
             #py.draw.circle(surface(you can have screen, smaller surfaces for text, having multiple different screens),colour E.g.(0,0,0),the coordinates of the centre to place it(250,250),radius75)
             py.display.flip()
-            self._clock.tick(30)
+            self._clock.tick(10)
         py.quit()
 
 """         keys=py.key.get_pressed()
