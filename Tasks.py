@@ -19,16 +19,18 @@ class Tasks():
               if cell not in self.__spawncell:
                self.__spawncell.append(cell)
                count=count+1
+
      
     def getspawncells(self):
          return self.__spawncell
                  
         
     def codegenerator(self):#creates a random code string
-        code=random.randint(0,9)
+        code=""
         for i in range (0,6):
-                 code=str(code)
-                 code=code+(str(self.__number))
+                 code=code+str(random.randint(0,9))
+                 
+                 
         code=str(code)
         return code
     
