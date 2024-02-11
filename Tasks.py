@@ -1,5 +1,6 @@
 import pygame as py
 import random
+from PygameUtil import PygameUtil
 
 class Tasks():
     
@@ -17,8 +18,19 @@ class Tasks():
               row=random.choice(grid)
               cell=random.choice(row)
               if cell not in self.__spawncell:
-               self.__spawncell.append(cell)
-               count=count+1
+                    self.__spawncell.append(cell)
+                    count=count+1
+     
+    def colourcells(self,taskcells):
+            for taskcell in taskcells:
+                width=taskcells[taskcell].getwidth()
+                height=taskcells[taskcell].getheight()
+                x=taskcells[taskcell].getcoords[0]
+                y=taskcells[taskcell].getcoords[1]
+                colouredcell=PygameUtil.createRect(x,y,width,height)
+                PygameUtil.drawRect((13,54,67),colouredcell)
+                
+         
 
      
     def getspawncells(self):
@@ -53,13 +65,14 @@ class Tasks():
         return codeint
     
     def rando(self):
-         riddle=["There are ten birds sitting on a fence. You shoot one. How many are left?","I watch you sleep, I haunt you by day. You stare at me and saw nothing, but darkness. What am I?","What is a cereal's worst fear?","I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I? "]
-         rando=int(random.randint(0,2))
-         return rando
+     rando=int(random.randint(0,3))
+  
+     return rando
     
     def genriddle(self,rando):
          riddle=['''There are ten birds \n
 sitting on a fence. You shoot one.\n
+
 How many are left?''',
                  '''I watch you sleep, I haunt you by day.\n
 You stare at me and saw nothing,\n 
@@ -87,6 +100,12 @@ with wind. What am I? ''']
     def echo(self):
          answers=["Phone","Speaker","Bell","An echo"]
          return answers
+    
+    def genfact(self,rando):
+         fact=["Sakshis middle name is Jon", "Saskshis fave colour is green", "Sakshis fave friend is Haritha", '''       Sakshis fave roblox game\n
+          is dress to impress''']
+         chosen=fact[rando]
+         return chosen
     
     
    

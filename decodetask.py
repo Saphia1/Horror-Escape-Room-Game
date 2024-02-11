@@ -67,7 +67,8 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
                             elif correct.collidepoint(location):
                                  self.draw_textline("CORRECT", 125 , 445, 42, (255, 0, 0))
                                  self._todo=self._todo-1
-                                 return self._todo
+                                 completed=True
+                                 return (self._todo,completed)
                 if event.type==py.QUIT:
                     start_game=False
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
@@ -78,12 +79,12 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
                             
 
             py.display.flip()
-            self._clock.tick(30)
+            self._clock.tick(10)
     py.quit()
 
 
 
-Decodetask(5).update()
+#Decodetask(5).update()
 
 
 

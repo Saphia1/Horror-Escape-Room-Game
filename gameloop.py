@@ -7,6 +7,9 @@ from enemy import Enemy
 from Tasks import Tasks
 from riddletask import Riddle
 from decodetask import Decodetask
+from TorF import TorF
+from Cell import Cell
+from PygameUtil import PygameUtil
 #generate all spawn cells then use for lopp to go through eahc one, then check if equal to current cell, then run that task
 
 class maingame(Screens):
@@ -16,6 +19,7 @@ class maingame(Screens):
         self._todo=5
         self._visitedriddle=False
         self._visiteddecode=False
+        self._visitedTorF=False
         
         
 
@@ -57,14 +61,37 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
+            taskcells=Tasks().getspawncells()
+            print("got")
+            #Tasks().colourcells(taskcells)
+            for taskcell in taskcells:
+                print("reached")
+                width=taskcells[taskcell].getwidth()
+                height=taskcells[taskcell].getheight()
+                x=taskcells[taskcell].getcoords[0]
+                y=taskcells[taskcell].getcoords[1]
+                colouredcell=PygameUtil.createRect(x,y,width,height)
+                PygameUtil.drawRect((13,54,67),colouredcell)
+   
 
-            for taskcell in Tasks.getspawncells():
+            print("ooo")
+            for taskcell in Tasks().getspawncells():
+                print("inloop")
 
                 if p1.incell(grid).getcoords()==taskcell.getcoords():
                     if self._visitedriddle==False:
-                        Riddle(self._todo).update()
+                        outcome=Riddle(self._todo).update()
+                        self._visitedriddle=outcome[1]
+                        self._todo=outcome[0]
+                        
                     elif self._visiteddecode==False:
                         Decodetask(self._todo).update()
+                        self._visiteddecode=outcome[1]
+                        self._todo=outcome[0]
+                    elif self._visitedTorF==False:
+                       TorF(self._todo).update()
+                       self._visitedTorF=outcome[1]
+                       self._todo=outcome[0]
                 
             
 
