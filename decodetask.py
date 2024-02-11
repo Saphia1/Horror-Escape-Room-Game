@@ -9,6 +9,10 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
         super().__init__(bgcolour)
         self._todo=todo
         self._code=Tasks().codegenerator()
+        self.__ans1=Tasks().codegenerator()
+        self.__ans2=Tasks().codegenerator()
+        self.__ans3=Tasks().codegenerator()
+
         
         
 
@@ -29,17 +33,17 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
             '''answer option 1'''
             answer1=self.createRect(50,300,150,75)
             self.drawRect((0,0,0),answer1,self._screen)
-            self.draw_textline((Tasks().codegenerator()), 125 , 445, 42, (255, 255, 255))
+            self.draw_textline(self.__ans1, 125 , 445, 42, (255, 255, 255))
             
             '''answer option 2'''
             answer2=self.createRect(250,200,150,75)
             self.drawRect((0,0,0),answer1,self._screen)
-            self.draw_textline((Tasks().codegenerator()), 125 , 445, 42, (255, 255, 255))
+            self.draw_textline(self.__ans2, 125 , 445, 42, (255, 255, 255))
             
             '''answer option 3'''
             answer3=self.createRect(50,200,150,75)
             self.drawRect((0,0,0),answer3,self._screen)
-            self.draw_textline((Tasks().codegenerator()), 125 , 445, 42, (255, 255, 255))
+            self.draw_textline(self.__ans3, 125 , 445, 42, (255, 255, 255))
 
             '''correct answer(reduced replaybility though because eventually will realise which is the correct answer)'''
             correct=self.createRect(250,300,150,75)
