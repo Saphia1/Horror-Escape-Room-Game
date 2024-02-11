@@ -22,11 +22,12 @@ class Tasks():
                     count=count+1
      
     def colourcells(self,taskcells):
-            for taskcell in taskcells:
-                width=taskcells[taskcell].getwidth()
-                height=taskcells[taskcell].getheight()
-                x=taskcells[taskcell].getcoords[0]
-                y=taskcells[taskcell].getcoords[1]
+          print(taskcells)
+          for i in range (0,2):
+                width=taskcells[i].getwidth()
+                height=taskcells[i].getheight()
+                x=taskcells[i].getcoords[0]
+                y=taskcells[i].getcoords[1]
                 colouredcell=PygameUtil.createRect(x,y,width,height)
                 PygameUtil.drawRect((13,54,67),colouredcell)
                 

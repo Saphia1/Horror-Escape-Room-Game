@@ -61,22 +61,16 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
+            Tasks().choosetaskcell(grid)
             taskcells=Tasks().getspawncells()
             print("got")
-            #Tasks().colourcells(taskcells)
-            for taskcell in taskcells:
-                print("reached")
-                width=taskcells[taskcell].getwidth()
-                height=taskcells[taskcell].getheight()
-                x=taskcells[taskcell].getcoords[0]
-                y=taskcells[taskcell].getcoords[1]
-                colouredcell=PygameUtil.createRect(x,y,width,height)
-                PygameUtil.drawRect((13,54,67),colouredcell)
+            Tasks().colourcells(taskcells)
+
    
 
             print("ooo")
             for taskcell in Tasks().getspawncells():
-                print("inloop")
+                
 
                 if p1.incell(grid).getcoords()==taskcell.getcoords():
                     if self._visitedriddle==False:
