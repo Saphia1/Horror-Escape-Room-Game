@@ -1,14 +1,16 @@
 
-from PygameUtil import PygameUtil as py #how to import from other files
+from PygameUtil import PygameUtil #how to import from other files
 from random import choice
-class Cell:
+class Cell(PygameUtil):
     def __init__(self,x,y,width=20,height=20):#x and y of TOP left coordinates#
+        super().__init__() 
         self.__x=x
         self.__y=y
         self._WIDTH=width
         self.__height=height
         self.__walls={"top":True, "right":True, "left":True, "bottom":True}#dictionary to allow for room walls to be removed by having a record of each cell
         self.__neighbours=[]
+        
 
     def getcoords (self):#by passing in self, we pass in all the __init__ attributes
         return self.__x, self.__y
@@ -67,5 +69,7 @@ class Cell:
                 "right":[(self.__x+self._WIDTH,self.__y),(self.__x+self._WIDTH,self.__y+self.__height)]}
         return walledges
 
-
+    def getrect(self):
+        return self.createRect(self.__x,self.__y,self._WIDTH,self.__height)
+    
 

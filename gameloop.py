@@ -24,7 +24,7 @@ class maingame(Screens):
         grid.gencells()
         cells=grid.getcells()
         p1=Player(22,22,10,10,3)
-        enemy=Enemy(102,45,10,10,3)
+        enemy=Enemy(102,45,10,10,10)
         detected=False
 
         #ensures game can be quit, draws the screen.

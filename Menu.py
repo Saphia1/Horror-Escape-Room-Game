@@ -48,6 +48,7 @@ class Menuscreen(Screens):#inheritence, stating class to inherit from
     def Update(self):#problem we encountered with inheriting from screens and pygame util for  draw.text display button and create rect as we forgot self__
         running=True
         while running:
+            
             self._screen.fill((0, 0, 0))
             self.drawimg(r"c:\Users\saphi\Pictures\Jpegs\Attackshititle.jpg",(500,300),(20,-50))
             self.drawimg(r"c:\Users\saphi\Pictures\Jpegs\blood.jpg",(220,300),(150,110))
