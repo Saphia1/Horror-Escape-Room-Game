@@ -63,6 +63,7 @@ class maingame(Screens):
       
             enemy.draw(self._screen)
             Tasks().choosetaskcell(gridlist)
+            spawncells=Tasks().getspawncells()
             
             
             
@@ -70,11 +71,11 @@ class maingame(Screens):
    
 
             
-            for taskcell in Tasks().getspawncells():
+            for i in range (0,len(spawncells)):
                 print("in loop")
                 
 
-                if p1.incell(gridlist).getcoords()==taskcell.getcoords():
+                if p1.incell(gridlist).getcoords()==spawncells[i].getcoords():
                     print("in loop 2")
                     if self._visitedriddle==False:
                         outcome=Riddle(self._todo).update()
