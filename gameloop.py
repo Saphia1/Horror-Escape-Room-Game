@@ -82,6 +82,7 @@ class maingame(Screens):
                 if p1.incell(gridlist).getcoords()==taskcells[i].getcoords():
                     print("in loop 2")
                     if self._visitedriddle==False:
+                        print(self._todo)
                         self._todo,self._visitedriddle=Riddle(self._todo).update()
                         
                     elif self._visiteddecode==False:
