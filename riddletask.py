@@ -16,11 +16,7 @@ class Riddle(Screens):#inheritence, stating class to inherit from
     def update(self):
         running=True
         while running:
-            for event in py.event.get():
-                if event.type==py.QUIT:
-                    start_game=False
-                    #py.quit()#this causes to stop being initialised, solution: put system.exit instead
-                    sys.exit()
+
             self._screen.fill((158,158,158))
             
             """ box=self.createRect(10, 10, 500, 500)
@@ -90,6 +86,9 @@ class Riddle(Screens):#inheritence, stating class to inherit from
                                  return (self._todo,completed)
                             else:
                                  self.draw_textline("INCORRECT", 125 , 445, 42, (255, 0, 0))
+                
+                elif event.type==py.QUIT:
+                     sys.exit()
                                  
                                  
             

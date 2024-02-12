@@ -36,7 +36,7 @@ class maingame(Screens):
         gridobject.gencells()
         cells=gridobject.getcells()
         gridlist=gridobject.getgrid()
-        p1=Player(22,22,10,10,6)
+        p1=Player(22,22,10,10,10)
         enemy=Enemy(102,45,10,10,gridobject.getcellsize())
         detected=False
         taskcells=Tasks().choosetaskcell(gridlist)
