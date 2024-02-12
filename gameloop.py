@@ -54,7 +54,7 @@ class maingame(Screens):
                     start_game=False
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
                     sys.exit()
-
+            Tasks().colourcells(taskcells)
             gridobject.buildgrid()
             
             keys=py.key.get_pressed()
@@ -66,7 +66,7 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
-            Tasks().colourcells(taskcells)
+            
             
             
             
