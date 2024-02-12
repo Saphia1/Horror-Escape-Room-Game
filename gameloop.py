@@ -64,6 +64,7 @@ class maingame(Screens):
             enemy.draw(self._screen)
             Tasks().choosetaskcell(gridlist)
             spawncells=Tasks().getspawncells()
+            Tasks().colourcells()
             
             
             
