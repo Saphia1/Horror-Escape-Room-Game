@@ -83,7 +83,8 @@ class maingame(Screens):
                     print("in loop 2")
                     if self._visitedriddle==False:
                         print(self._todo)
-                        self._todo,self._visitedriddle=Riddle(self._todo).update()
+                        self._todo=Riddle(self._todo).update()
+                        self.visitedriddle=True
                         
                     elif self._visiteddecode==False:
                        self._todo,self._visiteddecode= Decodetask(self._todo).update()

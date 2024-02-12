@@ -61,7 +61,8 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
             for event in py.event.get():
                 if event.type==py.MOUSEBUTTONDOWN:
                             if back.collidepoint(location):
-                                return
+                                completed=False
+                                return (self._todo,completed)
                             elif answer1.collidepoint(location) or answer2.collidepoint(location) or answer3.collidepoint(location):
                                  self.draw_textline("INCORRECT", 125 , 445, 42, (255, 0, 0))
                             elif correct.collidepoint(location):

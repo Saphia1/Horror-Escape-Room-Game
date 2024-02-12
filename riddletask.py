@@ -81,7 +81,8 @@ class Riddle(Screens):#inheritence, stating class to inherit from
             for event in py.event.get():
                 if event.type==py.MOUSEBUTTONDOWN:
                             if back.collidepoint(location):
-                                return
+                                completed=False
+                                return (self._todo,completed)
                             elif correct.collidepoint(location) and ans==3  or answer1.collidepoint(location) and ans==0 or answer2.collidepoint(location) and ans==1 or answer3.collidepoint(location) and ans==2:
                                  self.draw_textline("CORRECT", 125 , 445, 42, (255, 0, 0))
                                  self._todo=self._todo-1
