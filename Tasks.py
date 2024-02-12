@@ -27,10 +27,10 @@ class Tasks():
                     self.__spawncell.append(cell)
                     print (self.__spawncell)
                     self.__count=self.__count+1
+         return self.__spawncell
      
-    def colourcells(self):
+    def colourcells(self,taskcells):
           print("in loop 4")
-          taskcells=self.__spawncell
           print(taskcells)
           for i in range (0,(len(taskcells))):
                 print("in loop 5")

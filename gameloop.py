@@ -39,9 +39,9 @@ class maingame(Screens):
         p1=Player(22,22,10,10,6)
         enemy=Enemy(102,45,10,10,gridobject.getcellsize())
         detected=False
-        Tasks().choosetaskcell(gridlist)
-        spawncells=Tasks().getspawncells()
-        Tasks().colourcells()
+        taskcells=Tasks().choosetaskcell(gridlist)
+        #spawncells=Tasks().getspawncells()
+        Tasks().colourcells(taskcells)
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
@@ -74,11 +74,11 @@ class maingame(Screens):
    
 
             
-            for i in range (0,len(spawncells)):
+            for i in range (0,len(taskcells)):
                 print("in loop")
                 
 
-                if p1.incell(gridlist).getcoords()==spawncells[i].getcoords():
+                if p1.incell(gridlist).getcoords()==taskcells[i].getcoords():
                     print("in loop 2")
                     if self._visitedriddle==False:
                         outcome=Riddle(self._todo).update()
