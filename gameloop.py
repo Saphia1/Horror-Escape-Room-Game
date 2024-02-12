@@ -31,11 +31,12 @@ class maingame(Screens):
         """
         py.init()
         start_game=True
-        grid=Grid(20,20)
-        grid.gencells()
-        cells=grid.getcells()
+        gridobject=Grid(20,20)
+        gridobject.gencells()
+        cells=gridobject.getcells()
+        gridlist=gridobject.getgrid()
         p1=Player(22,22,10,10,6)
-        enemy=Enemy(102,45,10,10,grid.getcellsize())
+        enemy=Enemy(102,45,10,10,gridobject.getcellsize())
         detected=False
 
         #ensures game can be quit, draws the screen.
@@ -50,7 +51,7 @@ class maingame(Screens):
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
                     sys.exit()
 
-            grid.buildgrid()
+            gridobject.buildgrid()
             
             keys=py.key.get_pressed()
            # py.draw.rect(self._screen,(255,0,0),rect)
@@ -61,18 +62,20 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
-            Tasks().choosetaskcell(grid)
-            taskcells=Tasks().getspawncells()
-            print("got")
-            Tasks().colourcells(taskcells)
+            Tasks().choosetaskcell(gridlist)
+            
+            
+            
 
    
 
-            print("ooo")
+            
             for taskcell in Tasks().getspawncells():
+                print("in loop")
                 
 
-                if p1.incell(grid).getcoords()==taskcell.getcoords():
+                if p1.incell(gridlist).getcoords()==taskcell.getcoords():
+                    print("in loop 2")
                     if self._visitedriddle==False:
                         outcome=Riddle(self._todo).update()
                         self._visitedriddle=outcome[1]

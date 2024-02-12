@@ -82,4 +82,6 @@ class Grid(PygameUtil):
 
     def getcellsize(self):
         return self.__grid[0][0].getwidth(), self.__grid[0][0].getheight()
+    def getgrid(self):
+        return self.__grid
 
