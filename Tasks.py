@@ -16,7 +16,7 @@ class Tasks():
     def choosetaskcell(self,grid):
          gridlength=len(grid)
          count=0
-         while count != 3:
+         while count > 3:
               print("in loop 3")
               print(count)
               randgrid=random.randint(0,gridlength-1)
