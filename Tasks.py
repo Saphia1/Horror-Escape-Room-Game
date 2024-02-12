@@ -8,6 +8,7 @@ class Tasks():
           number=random.randint(0,3)
           self.__number=number
           self.__spawncell=[]
+          self.__count=0
           
      
      
@@ -15,16 +16,15 @@ class Tasks():
 
     def choosetaskcell(self,grid):
          gridlength=len(grid)
-         count=0
-         while count < 3:
+         while self.__count < 3:
               print("in loop 3")
-              print(count)
+              print(self.__count)
               randgrid=random.randint(0,gridlength-1)
               row=grid[randgrid]
               cell=random.choice(row)
               if cell not in self.__spawncell:
                     self.__spawncell.append(cell)
-                    count=count+1
+                    self.__count=self.__count+1
      
     def colourcells(self):
           print("in loop 4")
