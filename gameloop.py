@@ -76,22 +76,21 @@ class maingame(Screens):
 
             
             for i in range (0,len(taskcells)):
-                print("in loop")
+                
                 
 
                 if p1.incell(gridlist).getcoords()==taskcells[i].getcoords():
-                    print("in loop 2")
-                    if self._visitedriddle==False:
+                    
+                    if self._todo==3:
                         print(self._todo)
                         self._todo=Riddle(self._todo).update()
-                        self.visitedriddle=True
                         taskcells=taskcells.pop(0)
                         
-                    elif self._visiteddecode==False:
-                       self._todo,self._visiteddecode= Decodetask(self._todo).update()
+                    elif self._todo==2:
+                       self._todo= Decodetask(self._todo).update()
                      
-                    elif self._visitedTorF==False:
-                       self._todo,self._visitedTorF=TorF(self._todo).update()
+                    elif self._todo==1:
+                       self._todo=TorF(self._todo).update()
                     
                 
             

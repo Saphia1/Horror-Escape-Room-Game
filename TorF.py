@@ -68,13 +68,13 @@ class TorF(Screens):#inheritence, stating class to inherit from
             for event in py.event.get():
                 if event.type == py.MOUSEBUTTONDOWN:
                     if back.collidepoint(location):
-                                completed=False
-                                return (self._todo,completed)
+                                
+                                return (self._todo)
                     elif (answer2.collidepoint(location) and ans == False) or (answer1.collidepoint(location) and ans == True):
                         self.draw_textline("CORRECT", 125 , 445, 42, (255, 0, 0))
                         self._todo = self._todo - 1
-                        completed = True
-                        return (self._todo, completed)
+                        
+                        return (self._todo)
                     else:
                         self.draw_textline("INCORRECT", 125 , 445, 42, (255, 0, 0))
                                  

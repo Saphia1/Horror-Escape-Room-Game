@@ -61,15 +61,15 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
             for event in py.event.get():
                 if event.type==py.MOUSEBUTTONDOWN:
                             if back.collidepoint(location):
-                                completed=False
-                                return (self._todo,completed)
+                                
+                                return (self._todo)
                             elif answer1.collidepoint(location) or answer2.collidepoint(location) or answer3.collidepoint(location):
                                  self.draw_textline("INCORRECT", 125 , 445, 42, (255, 0, 0))
                             elif correct.collidepoint(location):
                                  self.draw_textline("CORRECT", 125 , 445, 42, (255, 0, 0))
                                  self._todo=self._todo-1
-                                 completed=True
-                                 return (self._todo,completed)
+                                 
+                                 return (self._todo)
                 if event.type==py.QUIT:
                     start_game=False
                     #py.quit()#this causes to stop being initialised, solution: put system.exit instead
