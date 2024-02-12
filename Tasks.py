@@ -23,7 +23,9 @@ class Tasks():
               row=grid[randgrid]
               cell=random.choice(row)
               if cell not in self.__spawncell:
+                    print("not in spawncell")
                     self.__spawncell.append(cell)
+                    print (self.__spawncell)
                     self.__count=self.__count+1
      
     def colourcells(self):

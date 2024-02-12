@@ -22,6 +22,7 @@ class maingame(Screens):
         self._visitedTorF=False
         
         
+        
 
     
     def run_loop(self):
@@ -38,6 +39,9 @@ class maingame(Screens):
         p1=Player(22,22,10,10,6)
         enemy=Enemy(102,45,10,10,gridobject.getcellsize())
         detected=False
+        Tasks().choosetaskcell(gridlist)
+        spawncells=Tasks().getspawncells()
+        Tasks().colourcells()
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
@@ -62,9 +66,7 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
-            Tasks().choosetaskcell(gridlist)
-            spawncells=Tasks().getspawncells()
-            Tasks().colourcells()
+            
             
             
             
