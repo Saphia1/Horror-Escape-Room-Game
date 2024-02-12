@@ -41,7 +41,7 @@ class maingame(Screens):
         detected=False
         taskcells=Tasks().choosetaskcell(gridlist)
         #spawncells=Tasks().getspawncells()
-        Tasks().colourcells(taskcells)
+        
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
@@ -66,6 +66,7 @@ class maingame(Screens):
             enemy.movement(cells,detected,p1.getrect())
       
             enemy.draw(self._screen)
+            Tasks().colourcells(taskcells)
             
             
             
