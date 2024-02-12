@@ -32,7 +32,7 @@ class Tasks(PygameUtil):
          return self.__spawncell
      
     def colourcells(self,taskcells):
-          print(taskcells)
+          taskcells=list(taskcells)
           for i in range (0,(len(taskcells))):
                 width=taskcells[i].getwidth()
                 height=taskcells[i].getheight()

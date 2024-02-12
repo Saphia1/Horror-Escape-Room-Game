@@ -81,7 +81,7 @@ class maingame(Screens):
                     if self._todo==3:
                         print(self._todo)
                         self._todo=Riddle(self._todo).update()
-                        taskcells=taskcells.remove(0)
+                        taskcells=taskcells.remove(taskcells[i])
                         
                     elif self._todo==2:
                        self._todo= Decodetask(self._todo).update()
