@@ -16,7 +16,7 @@ class maingame(Screens):
     def __init__(self, bgcolour=(158,158,158)):
         super().__init__()
         self._bgcolour=bgcolour
-        self._todo=5
+        self._todo=3
         self._visitedriddle=False
         self._visiteddecode=False
         self._visitedTorF=False
@@ -82,18 +82,14 @@ class maingame(Screens):
                 if p1.incell(gridlist).getcoords()==taskcells[i].getcoords():
                     print("in loop 2")
                     if self._visitedriddle==False:
-                        outcome=Riddle(self._todo).update()
-                        self._visitedriddle=outcome[1]
-                        self._todo=outcome[0]
+                        self._todo,self._visitedriddle=Riddle(self._todo).update()
                         
                     elif self._visiteddecode==False:
-                        Decodetask(self._todo).update()
-                        self._visiteddecode=outcome[1]
-                        self._todo=outcome[0]
+                       self._todo,self._visiteddecode= Decodetask(self._todo).update()
+                     
                     elif self._visitedTorF==False:
-                       TorF(self._todo).update()
-                       self._visitedTorF=outcome[1]
-                       self._todo=outcome[0]
+                       self._todo,self._visitedTorF=TorF(self._todo).update()
+                    
                 
             
 

@@ -32,15 +32,12 @@ class Tasks(PygameUtil):
          return self.__spawncell
      
     def colourcells(self,taskcells):
-          print("in loop 4")
-          print(taskcells)
           for i in range (0,(len(taskcells))):
-                print("in loop 5")
                 width=taskcells[i].getwidth()
                 height=taskcells[i].getheight()
                 x,y=taskcells[i].getcoords()
                 colouredcell=self.createRect(x,y,width,height)
-                self.drawRect((13,54,67),colouredcell)
+                self.drawRect((0,240,0),colouredcell)
                 
          
 
