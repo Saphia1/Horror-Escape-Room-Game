@@ -23,8 +23,8 @@ class Riddle(Screens):#inheritence, stating class to inherit from
                     sys.exit()
             self._screen.fill((158,158,158))
             
-            box=self.createRect(10, 10, 500, 500)
-            self.drawRect(255,box,self._screen)
+            """ box=self.createRect(10, 10, 500, 500)
+            self.drawRect(255,box,self._screen) """
 
             self.draw_textline(self.__riddle,50,50, 30, (255,255,255))
 

@@ -22,8 +22,8 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
 
             self._screen.fill(self._bgcolour)
             
-            box=self.createRect(10, 10, 500, 500)
-            self.drawRect(255,box,self._screen)
+            """             box=self.createRect(10, 10, 500, 500)
+            self.drawRect(255,box,self._screen) """
             self.draw_text(self._code,170,100, 50, (255,255,255))
             self.draw_text("Add the digits",120,50, 50, (255,255,255))
 

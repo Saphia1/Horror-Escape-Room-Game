@@ -23,8 +23,8 @@ class TorF(Screens):#inheritence, stating class to inherit from
                     sys.exit()
             self._screen.fill((158,158,158))
             
-            box=self.createRect(10, 10, 500, 500)
-            self.drawRect(255,box,self._screen)
+            """             box=self.createRect(10, 10, 500, 500)
+            self.drawRect(255,box,self._screen) """
 
             self.draw_textline(self.__fact,50,50, 30, (255,255,255))
 
@@ -62,21 +62,21 @@ class TorF(Screens):#inheritence, stating class to inherit from
        
 
 
-            
+            location= self.getmouse
 
-            location=self.getmouse()
+            location = self.getmouse()
             for event in py.event.get():
-                if event.type==py.MOUSEBUTTONDOWN:
-                            if back.collidepoint(location):
-                                return
-                            elif answer2.collidepoint(location) and ans==False or answer1.collidepoint(location) and ans==True:
-                                 self.draw_textline("CORRECT", 125 , 445, 42, (255, 0, 0))
-                                 self._todo=self._todo-1
-                                 completed=True
-                                 return (self._todo,completed)
-                            else:
-                                 self.draw_textline("INCORRECT", 125 , 445, 42, (255, 0, 0))
-                                 
+                if event.type == py.MOUSEBUTTONDOWN:
+                    if back.collidepoint(location):
+                                completed=False
+                                return (self._todo,completed)
+                    elif (answer2.collidepoint(location) and ans == False) or (answer1.collidepoint(location) and ans == True):
+                        self.draw_textline("CORRECT", 125 , 445, 42, (255, 0, 0))
+                        self._todo = self._todo - 1
+                        completed = True
+                        return (self._todo, completed)
+                    else:
+                        self.draw_textline("INCORRECT", 125 , 445, 42, (255, 0, 0))
                                  
             
                             
