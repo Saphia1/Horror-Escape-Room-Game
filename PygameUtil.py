@@ -14,7 +14,9 @@ class PygameUtil:#central class in which everything inherits from
         return py.Rect(x,y,width,height)
     
     def drawRect(self,colour,rect,surface=None):#draws rectangle just created
-        surface=self._screen if None else surface #one liner if statement (if nothing passed in as surface, set it to the screen, if not use the surface give.)
+        if surface==None:
+            surface=self._screen
+         #(if nothing passed in as surface, set it to the screen, if not use the surface give.)
         py.draw.rect(surface,colour,rect)
 
     def drawline(self,colour,start_pos,end_pos,surface=None):#lines for maze generation to draw grids

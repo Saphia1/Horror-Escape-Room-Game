@@ -2,9 +2,11 @@ import pygame as py
 import random
 from PygameUtil import PygameUtil
 
-class Tasks():
+class Tasks(PygameUtil):
+    
     
     def __init__(self):
+          super().__init__()
           number=random.randint(0,3)
           self.__number=number
           self.__spawncell=[]
@@ -37,8 +39,8 @@ class Tasks():
                 width=taskcells[i].getwidth()
                 height=taskcells[i].getheight()
                 x,y=taskcells[i].getcoords()
-                colouredcell=PygameUtil.createRect(x,y,width,height)
-                PygameUtil.drawRect((13,54,67),colouredcell)
+                colouredcell=self.createRect(x,y,width,height)
+                self.drawRect((13,54,67),colouredcell)
                 
          
 
