@@ -75,16 +75,13 @@ class maingame(Screens):
    
 
             
-            for i in range (0,len(taskcells)):
-                
-                
-
+            for i in range (0,len(taskcells)):#0
                 if p1.incell(gridlist).getcoords()==taskcells[i].getcoords():
                     
                     if self._todo==3:
                         print(self._todo)
                         self._todo=Riddle(self._todo).update()
-                        taskcells=taskcells.pop(0)
+                        taskcells=taskcells.remove(0)
                         
                     elif self._todo==2:
                        self._todo= Decodetask(self._todo).update()
