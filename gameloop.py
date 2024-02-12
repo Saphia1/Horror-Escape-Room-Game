@@ -85,7 +85,7 @@ class maingame(Screens):
                         print(self._todo)
                         self._todo=Riddle(self._todo).update()
                         self.visitedriddle=True
-                        taskcells=taskcells.delete[0]
+                        taskcells=taskcells.pop(0)
                         
                     elif self._visiteddecode==False:
                        self._todo,self._visiteddecode= Decodetask(self._todo).update()
