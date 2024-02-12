@@ -36,8 +36,7 @@ class Tasks():
                 print("in loop 5")
                 width=taskcells[i].getwidth()
                 height=taskcells[i].getheight()
-                x=taskcells[i].getcoords[0]
-                y=taskcells[i].getcoords[1]
+                x,y=taskcells[i].getcoords
                 colouredcell=PygameUtil.createRect(x,y,width,height)
                 PygameUtil.drawRect((13,54,67),colouredcell)
                 
