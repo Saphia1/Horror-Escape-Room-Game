@@ -29,6 +29,7 @@ class Tasks():
     def colourcells(self):
           print("in loop 4")
           taskcells=self.__spawncell
+          print(taskcells)
           for i in range (0,(len(taskcells))):
                 print("in loop 5")
                 width=taskcells[i].getwidth()
