@@ -18,11 +18,9 @@ class Riddle(Screens):#inheritence, stating class to inherit from
         print(self.__riddle)
         while running:
 
-            
-            
-            """ box=self.createRect(10, 10, 500, 500)
-            self.drawRect(255,box,self._screen) """
 
+            
+        
             
 
             if self.__rando==0:
@@ -39,7 +37,8 @@ class Riddle(Screens):#inheritence, stating class to inherit from
                  answers=Tasks().echo()
                  ans=3
             
-            
+            self._screen.fill((158,158,158))
+            self.draw_textline(self.__riddle,50,50, 30, (255,255,255))
                  
                  
 
@@ -67,8 +66,7 @@ class Riddle(Screens):#inheritence, stating class to inherit from
             self.drawRect((0,0,0),correct,self._screen)
             self.draw_textline(answers[3], 255 , 305, 42, (255, 255, 255))
 
-            self.draw_textline(self.__riddle,50,50, 30, (255,255,255))
-            self._screen.fill((158,158,158))
+            
             
 
             
