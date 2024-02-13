@@ -42,14 +42,14 @@ class Cell(PygameUtil):
         change_in_y=self.__y-y
         if change_in_y == self.__height:#if we are moving to cell above
             self.__walls["top"]=False
-            neighbour.removeindividualwall("bottom")
-        if change_in_y == -self.__height:
+            neighbour.removeindividualwall("bottom")#the neighbour removes their bottom wall so we can move up
+        if change_in_y == -self.__height:#if we are moving to cell below
             self.__walls["bottom"]=False
             neighbour.removeindividualwall("top")
-        if change_in_x == self._WIDTH:#if we are moving to cell below
+        if change_in_x == self._WIDTH:#if we are moving to cell on left
             self.__walls["left"]=False
             neighbour.removeindividualwall("right")
-        if change_in_x == -self._WIDTH:
+        if change_in_x == -self._WIDTH:#if we are moving to cell on right
             self.__walls["right"]=False
             neighbour.removeindividualwall("left")
         

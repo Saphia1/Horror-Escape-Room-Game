@@ -80,19 +80,10 @@ class Tasks(PygameUtil):
      return rando
     
     def genriddle(self,rando):
-         riddle=['''There are ten birds \n
-sitting on a fence. You shoot one.\n
-
-How many are left?''',
-                 '''I watch you sleep, I haunt you by day.\n
-You stare at me and saw nothing,\n 
-but darkness. What am I?''',
-                 '''What does a cereal\n
-fear?''',
-                 '''I speak without \n
-a mouth and hear without ears.\n
-I have no body,but I come alive \n
-with wind. What am I? ''']
+         riddle=['There are ten birds \n sitting on a fence. You shoot one.\n How many are left?', 
+                 'I watch you sleep, I haunt you by day.\n You stare at me and saw nothing,\n  but darkness. What am I?',
+                 'What does a cereal\fear?',
+                 'I speak without \n a mouth and hear without ears.\n I have no body,but I come alive \n with wind. What am I? ']
          chosen=riddle[rando]
          return chosen
 

@@ -84,4 +84,3 @@ class Grid(PygameUtil):
         return self.__grid[0][0].getwidth(), self.__grid[0][0].getheight()
     def getgrid(self):
         return self.__grid
-
