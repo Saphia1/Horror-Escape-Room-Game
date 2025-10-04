@@ -36,11 +36,13 @@ class Screens(PygameUtil):#inheritence, stating class to inherit from
         imp = py.transform.smoothscale(imp, (size)) 
         self._screen.blit(imp, (coords[0], coords[1]))
 
-    def draw_textline(self,text, x , y, fontsize, fontcolour=None):#TO DO:add font do same thing as fontcolour=None
+    def draw_textline(self,text, x , y, fontsize, fontcolour=None, screen=None):#TO DO:add font do same thing as fontcolour=None
         self._font=py.font.Font("BloodBath-Regular.otf", fontsize)
         #self._fontcolour=(255,0,30)
         if fontcolour==None:
             fontcolour=self._fontcolour
+        if screen==None:
+            screen=self._screen
         text=text.split("\n")#spliyts up text into a list every time it sees a \n
         for line in text:
             line=self._font.render(line, True, fontcolour)

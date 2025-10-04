@@ -13,6 +13,7 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
         self.__ans2=Tasks().answergenerator()
         self.__ans3=Tasks().answergenerator()
 
+
         
         
 
@@ -24,6 +25,13 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
             
             """             box=self.createRect(10, 10, 500, 500)
             self.drawRect(255,box,self._screen) """
+
+
+            '''correct answer(reduced replaybility though because eventually will realise which is the correct answer)'''
+            correct=self.createRect(250,300,150,75)
+            self.drawRect((0,0,0),correct,self._screen)
+            self.draw_textline((Tasks().codecalc(self._code)), 255 , 305, 42, (255, 255, 255),self._screen)
+
             self.draw_text(self._code,170,100, 50, (255,255,255))
             self.draw_text("Add the digits",120,50, 50, (255,255,255))
 
@@ -46,10 +54,7 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
             self.drawRect((0,0,0),answer3,self._screen)
             self.draw_textline(self.__ans3, 55 , 205, 42, (255, 255, 255))
 
-            '''correct answer(reduced replaybility though because eventually will realise which is the correct answer)'''
-            correct=self.createRect(250,300,150,75)
-            self.drawRect((0,0,0),correct,self._screen)
-            self.draw_textline((Tasks().codecalc(self._code)), 255 , 305, 42, (255, 255, 255))
+            
 
             
        
@@ -80,7 +85,7 @@ class Decodetask(Screens):#inheritence, stating class to inherit from
                             
 
             py.display.flip()
-            self._clock.tick(10)
+            self._clock.tick(30)
     py.quit()
 
 

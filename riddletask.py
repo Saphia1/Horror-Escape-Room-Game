@@ -14,6 +14,7 @@ class Riddle(Screens):#inheritence, stating class to inherit from
         
 
     def update(self):
+        self._screen.fill((158,158,158))
         running=True
         print(self.__riddle)
         while running:

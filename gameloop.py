@@ -42,6 +42,7 @@ class maingame(Screens):
         taskcells=Tasks().choosetaskcell(gridlist)
         #spawncells=Tasks().getspawncells()
         
+        
 
         #ensures game can be quit, draws the screen.
         while start_game==True:
@@ -94,7 +95,7 @@ class maingame(Screens):
 
             #py.draw.circle(surface(you can have screen, smaller surfaces for text, having multiple different screens),colour E.g.(0,0,0),the coordinates of the centre to place it(250,250),radius75)
             py.display.flip()
-            self._clock.tick(10)
+            self._clock.tick(30)
         py.quit()
 
 """         keys=py.key.get_pressed()
